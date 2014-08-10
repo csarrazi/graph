@@ -1,0 +1,27 @@
+{
+    "name": "csa/graph",
+    "description": "A small library for graph manipulation",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Charles Sarrazin",
+            "email": "charles@sarraz.in"
+        }
+    ],
+    "require-dev": {
+        "phpspec/phpspec": "~2.0@stable",
+        "henrikbjorn/phpspec-code-coverage": "*"
+    },
+    "autoload": {
+        "psr-4": { "Graph\\": "src/" }
+    },
+    "minimum-stability": "dev",
+    "config": {
+        "bin-dir": "bin"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.1-dev"
+        }
+    }
+}

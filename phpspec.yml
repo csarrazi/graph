@@ -1,0 +1,5 @@
+suites:
+    csa_graph: Graph
+
+extensions:
+    - PhpSpec\Extension\CodeCoverageExtension
