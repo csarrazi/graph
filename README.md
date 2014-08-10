@@ -20,6 +20,7 @@ Todo
 
 * Add support for loading exclusive weights
 * Add support for aggregating weights
+* Add support for various dumpers (Graphviz, etc.)
 
 License
 -------
