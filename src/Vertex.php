@@ -96,8 +96,6 @@ class Vertex implements Visitable
             $visitor->visitEdge($edge);
         }
 
-        $visitor->visitVertex($this);
-
         return $this;
     }
 }

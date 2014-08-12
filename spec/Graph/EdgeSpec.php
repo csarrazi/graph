@@ -43,6 +43,11 @@ class EdgeSpec extends ObjectBehavior
         $this->getName()->shouldReturn('foo - bar');
     }
 
+    function it_throws_an_exception_when_fetching_an_unknown_weight()
+    {
+        $this->shouldThrow('OutOfBoundsException')->duringGetWeight('foo');
+    }
+
     function it_add_different_weights_in_a_array(Weight $weight1, Weight $weight2)
     {
         $weight1->getName()->willReturn('foo');
@@ -80,8 +85,8 @@ class EdgeSpec extends ObjectBehavior
 
     function it_exposes_itself_to_visitor(Visitor $visitor)
     {
-        $visitor->visitEdge($this)->shouldBeCalled();
+        $visitor->visitVertex($this->getTarget())->shouldBeCalled();
 
-        $this->accept($visitor);
+        $this->accept($visitor)->shouldReturn($this);
     }
 }

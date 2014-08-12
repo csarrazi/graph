@@ -99,7 +99,7 @@ class Graph implements Visitable
     public function accept(Visitor $visitor)
     {
         if (!$vertex = $this->getVertex(self::START)) {
-            throw new \LogicException('The graph should at least have a main() node.');
+            throw new \LogicException('The graph should at least have a starting node.');
         }
 
         $visitor->visitVertex($vertex);
