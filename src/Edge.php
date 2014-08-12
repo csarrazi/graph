@@ -51,7 +51,6 @@ class Edge implements Visitable
     {
         if (isset($this->weights[$weight->getName()])) {
             throw new \OutofBoundsException(sprintf('Weight %s was already added', $weight->getName()));
-            
         }
 
         $this->weights[$weight->getName()] = $weight;
@@ -69,6 +68,7 @@ class Edge implements Visitable
      * @param $name
      *
      * @return Weight
+     * @throws \OutOfBoundsException
      */
     public function getWeight($name)
     {
@@ -76,7 +76,7 @@ class Edge implements Visitable
             return $this->weights[$name];
         }
 
-        return 0;
+        throw new \OutOfBoundsException(sprintf('Weight %s is not supported', $name));
     }
 
     /**
@@ -100,7 +100,7 @@ class Edge implements Visitable
      */
     public function accept(Visitor $visitor)
     {
-        $visitor->visitEdge($this);
+        $visitor->visitVertex($this->getTarget());
 
         return $this;
     }

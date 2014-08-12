@@ -33,7 +33,6 @@ class Vertex implements Visitable
     {
         $this->name    = $name;
         $this->edges   = array();
-        $this->visited = false;
     }
 
     /**
@@ -76,7 +75,7 @@ class Vertex implements Visitable
     {
         $that = $this;
         $edges = array_filter($this->getEdges(), function (Edge $edge) use ($that) {
-            return $edge->getSource() === $that;
+            return $edge->getTarget() === $that;
         });
 
         return array_reduce($edges, function ($carry, Edge $edge) use ($name, $type) {
@@ -93,6 +92,10 @@ class Vertex implements Visitable
      */
     public function accept(Visitor $visitor)
     {
+        foreach ($this->edges as $edge) {
+            $visitor->visitEdge($edge);
+        }
+
         $visitor->visitVertex($this);
 
         return $this;
