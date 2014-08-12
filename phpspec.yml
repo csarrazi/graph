@@ -3,3 +3,7 @@ suites:
 
 extensions:
     - PhpSpec\Extension\CodeCoverageExtension
+
+code_coverage:
+    output: coverage.clover
+    format: clover
